@@ -15,7 +15,7 @@ namespace Encryptor
         UnicodeEncoding ByteConverter = new UnicodeEncoding();
         private readonly string JPATH;
         private readonly string XPATH;
-        private readonly string test = "Hello World";
+        private readonly string datastring = "Hello World";
         private byte[] dataToEncrypt { get; set; }
         private byte[] encryptedData { get; set; }
 
@@ -27,7 +27,7 @@ namespace Encryptor
 
         public void EncryptData()
         {
-            dataToEncrypt = ByteConverter.GetBytes($"{test}");
+            dataToEncrypt = ByteConverter.GetBytes($"{datastring}");
             using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
             {
                 RSA.FromXmlString(Key.publicKeyXML);
